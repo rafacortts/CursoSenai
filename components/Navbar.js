@@ -1,14 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 const NavBar = () => {
   return (
     <View style={styles.navBar}>
       <Text style={styles.logo}>MyApp</Text>
       <View style={styles.links}>
-        <Text style={styles.link}>Home</Text>
-        <Text style={styles.link}>Sobre</Text>
-        <Text style={styles.link}>Contato</Text>
+      <Icon name="user-circle-o" size={30} color="#fff" />
       </View>
     </View>
   );
@@ -19,7 +17,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#0866FF',
+    backgroundColor: '#F0500C',
     paddingVertical: 10,
     paddingHorizontal: 20,
   },
