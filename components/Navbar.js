@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const NavBar = () => {
   return (
     <View style={styles.navBar}>
-      <Text style={styles.logo}>MyApp</Text>
+      <Text style={styles.logo}>Itaú</Text>
       <View style={styles.links}>
       <Icon name="user-circle-o" size={30} color="#fff" />
       </View>

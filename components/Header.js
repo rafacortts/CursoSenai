@@ -1,49 +1,44 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  Button,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import {View,Text,TextInput,Button,StyleSheet,TouchableOpacity,Alert,} from "react-native";
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const Login = () => {
+  const handleLogin = () => {
     console.log("Email:", email);
     console.log("Password:", password);
+    Alert.alert("Logado com Sucesso", `Bem-vindo, ${email}!`);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Seja Bem-Vindo ao , MyApp</Text>
+      <Text style={styles.title}>Seja Bem-Vindo ao Itaú</Text>
       <TextInput
         style={styles.input}
         value={email}
         onChangeText={setEmail}
         placeholder="Coloque Seu Email"
-     
+        placeholderTextColor="#ccc"
       />
       <TextInput
         style={styles.input}
         value={password}
         onChangeText={setPassword}
         placeholder="Coloque Sua Senha"
+        placeholderTextColor="#ccc"
         secureTextEntry
       />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Cadastro')}>
           <Text style={styles.buttonText}>Cadastro</Text>
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.recuperarConta}> Recupere sua conta </Text>
+      <Text style={styles.recuperarConta}>Perdeu o Acesso? Recupere sua conta</Text>
     </View>
   );
 }
@@ -72,32 +67,30 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     color: "#fff",
   },
-
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    gap:"10px",
+    gap: "10px",
     marginTop: 0,
   },
-
   button: {
-    marginTop: "10px",
-    backgroundColor: "Transparent",
+    marginTop: 10,
+    backgroundColor: "transparent",
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 3,
     borderWidth: 2,
-    borderColor: "#FFf",
+    borderColor: "#fff",
   },
   buttonText: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
   },
-
-  recuperarConta:{
-    color:"#fff",
-    marginTop : "10px",
-    fontSize:14
-  }
+  recuperarConta: {
+    color: "#fff",
+    marginTop: 10,
+    fontSize: 14,
+    textDecorationLine:"underline"
+  },
 });
